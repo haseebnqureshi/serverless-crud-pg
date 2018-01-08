@@ -1,0 +1,30 @@
+{
+  "name": "serverless-crud-pg",
+  "version": "0.1.0",
+  "description": "",
+  "main": "handler.js",
+  "scripts": {
+    "deploy-test": "sls deploy --stage test",
+    "deploy-live": "sls deploy --stage live",
+    "info-test": "sls info --stage test",
+    "info-live": "sls info --stage live",
+    "backup-schema": "node -e \"require('./pg-admin.js').backupSchema()\"",
+    "backup-data": "node -e \"require('./pg-admin.js').backupData()\"",
+    "restore-schema": "node -e \"require('./pg-admin.js').restoreSchema()\"",
+    "restore-data": "node -e \"require('./pg-admin.js').restoreData()\""
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/haseebnqureshi/serverless-crud-pg.git"
+  },
+  "author": "Haseeb Qureshi <haseeb.n.qureshi@gmail.com>",
+  "license": "MIT",
+  "dependencies": {
+    "dotenv": "^4.0.0",
+    "knex": "^0.14.2",
+    "object-hash": "^1.2.0",
+    "pg": "^6.2.4",
+    "pg-types": "^1.13.0",
+    "underscore": "^1.8.3"
+  }
+}

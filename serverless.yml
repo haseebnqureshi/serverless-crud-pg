@@ -1,0 +1,45 @@
+
+#see https://serverless.com/framework/docs/
+
+service: serverless-crud-pg
+
+provider:
+  name: aws
+  runtime: nodejs6.10
+  region: us-east-1
+  profile: serverless_admin
+  timeout: 20
+  versionFunctions: false
+
+functions:
+  createItem: 
+    handler: handler.createItem
+    events:
+      - http:
+          path: items
+          method: post
+          cors: true
+
+  readItems: 
+    handler: handler.readItems
+    events:
+      - http:
+          path: items
+          method: get
+          cors: true
+
+  updateItem:
+    handler: handler.updateItem
+    events:
+      - http:
+          path: items/{id}
+          method: put
+          cors: true
+
+  deleteItem: 
+    handler: handler.deleteItem
+    events:
+      - http:
+          path: items/{id}
+          method: delete
+          cors: true
